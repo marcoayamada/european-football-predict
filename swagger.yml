@@ -1,0 +1,117 @@
+swagger: "2.0"
+info:
+  title: Prevendo resultado de jogos
+  description: API para prever resultado de jogos
+  version: "1.0.0"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /preds:
+    post:
+      operationId: model_converter.make_pred
+      tags:
+        - Predicao do resultado
+      summary: Obter probabilidade do resultado do jogo
+      description: ""
+      parameters:
+        - name: body
+          in: body
+          description: in body
+          required: True
+          schema:
+            type: object
+            properties:
+              lista_jogos: 
+                type: array
+                items:
+                  type: object
+                  properties:
+                    home_pos:
+                      type: "number"
+                      format: "float"
+                      example: 8.0
+                    away_pos:
+                      type: "number"
+                      format: "float"
+                      example: 10.0
+                    last5all_home_away_dif:
+                      type: "number"
+                      format: "float"
+                      example: 7.0
+                    fifa_home_ova:
+                      type: "number"
+                      format: "float"
+                      example: 69.0
+                    fifa_home_att:
+                      type: "number"
+                      format: "float"
+                      example: 70.0
+                    fifa_home_mid:
+                      type: "number"
+                      format: "float"
+                      example: 68.0
+                    fifa_home_def:
+                      type: "number"
+                      format: "float"
+                      example: 69.0
+                    fifa_away_ova:
+                      type: "number"
+                      format: "float"
+                      example: 70.0
+                    fifa_away_att:
+                      type: "number"
+                      format: "float"
+                      example: 71.0
+                    fifa_away_mid:
+                      type: "number"
+                      format: "float"
+                      example: 70.0
+                    fifa_away_def:
+                      type: "number"
+                      format: "float"
+                      example: 71.0
+                    elo_home_score:
+                      type: "number"
+                      format: "float"
+                      example: 1426.95825195
+                    elo_away_score:
+                      type: "number"
+                      format: "float"
+                      example: 1463.85192871
+                    tfm_value_home:
+                      type: "number"
+                      format: "float"
+                      example: 13450000.0
+                    tfm_value_away:
+                      type: "number"
+                      format: "float"
+                      example: 21600000.0
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: object
+            properties:
+              preds: 
+                type: array
+                items:
+                  type: object
+                  properties:
+                    A:
+                      type: "number"
+                      format: "float"
+                      example: 0.2340770042
+                    D:
+                      type: "number"
+                      format: "float"
+                      example: 0.4544593558
+                    H:
+                      type: "number"
+                      format: "float"
+                      example: 0.3787636698
