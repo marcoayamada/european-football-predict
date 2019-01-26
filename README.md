@@ -7,4 +7,4 @@ https://github.com/marcoayamada/european-football-predict/blob/master/Notebook/E
 https://github.com/marcoayamada/european-football-predict/blob/master/Notebook/Predict%20process%203.ipynb
 
 ### API
-https://european-football-prediction.herokuapp.com/
+https://european-football-prediction.herokuapp.com/api/ui/
